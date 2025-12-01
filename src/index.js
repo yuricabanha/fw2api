@@ -6,6 +6,10 @@ const port = 3000;
 app.set('view engine', 'ejs')
 app.set('views', './views')
 
+app.use(express.json())
+app.use(express.urlencoded())
+
+require('../db/dbconnect')
 require('../route/home')(app)
 require('../route/getnoticias')(app)
 require('../route/postnoticias')(app)
