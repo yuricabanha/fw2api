@@ -8,10 +8,11 @@ module.exports = (app) => {
             const tiponoticia = req.body.tiponoticia
             await app.DBClient.connect()
             const resultado = await app.DBClient.db('portalnoticias')
-             .collection('noticias')
-             .updateOne({ _id: _id },
-                {$set:{titulonoticia:titulonoticia,conteudonoticia:conteudonoticia,tiponoticia:tiponoticia}
-              })
+                .collection('noticias')
+                .updateOne({ _id: _id },
+                    {
+                        $set: { titulonoticia: titulonoticia, conteudonoticia: conteudonoticia, tiponoticia: tiponoticia }
+                    })
             if (!resultado.modifiedCount) {
                 throw new Error("A notícia não foi atualizada — id não encontrado.");
             } else { res.status(200).send("Notícia Atualizada") }
