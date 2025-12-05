@@ -3,9 +3,12 @@ module.exports = (app) => {
         try {
             await app.DBClient.connect(); //realizar a conexão com o banco 
             const noticias = await app.DBClient.db('portalnoticias')
-            .collection('noticias').find().toArray();
+                .collection('noticias').find().toArray();
             res.json(noticias)
-        } finally {
+        } catch (err) {
+            res.send(" erro")
+        }
+        finally {
             // Ensures that the client will close when you finish/error
             await app.DBClient.close();
         }
