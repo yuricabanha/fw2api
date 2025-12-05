@@ -1,7 +1,7 @@
 module.exports = (app) => {
     app.get('/noticias', async (req, res) => {
         try {
-            await app.DBClient.connect(); //realizar a conexão com o banco 
+            //await app.DBClient.connect(); //realizar a conexão com o banco 
             res.send("conectado")
             /* const noticias = await app.DBClient.db('portalnoticias')
                 .collection('noticias').find().toArray();
