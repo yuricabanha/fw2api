@@ -7,7 +7,7 @@ module.exports = (app) => {
                 .collection('noticias').find().toArray();
             res.json(noticias) */
         } catch (err) {
-            res.send(" erro")
+            res.send(" erro"+err)
         }
         finally {
             // Ensures that the client will close when you finish/error
