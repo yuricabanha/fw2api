@@ -13,9 +13,9 @@ module.exports = (app) => {
                     tiponoticia: tiponoticia,
                     datahoracadastro: new Date()
                 })
-            res.send("Notícia Gravada com sucesso!")
+            res.json({status:1})
         } catch (error) {
-            res.send("Não foi possível gravar a notícia")
+            res.json({status:0})
         }
     })
 }
